@@ -1,4 +1,4 @@
-export interface CreateAccountRequestDTO {
+export interface ICreateAccountRequestDTO {
   email: string;
   password: string;
 }

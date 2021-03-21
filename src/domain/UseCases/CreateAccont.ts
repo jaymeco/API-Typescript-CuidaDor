@@ -1,5 +1,6 @@
 import { PostgresAccountRepository } from "../../infra/repositories/PostgresAccountRepository";
 import hashpassword from "../../infra/utils/hashpassword";
+import { ICreateAccountRequestDTO } from "../DTOs/CreateAccount";
 import { Account } from "../entities/account";
 
 export class CreateAccount {
@@ -9,16 +10,16 @@ export class CreateAccount {
     this.accountRepository = accountRepository;
   }
 
-  async execute(email: string, password: string): Promise<Account> {
-    const accountExists = await this.accountRepository.findOne({ email });
+  async execute(data: ICreateAccountRequestDTO): Promise<Account> {
+    const accountExists = await this.accountRepository.findOne({ email: data.email });
 
     if(accountExists){
       throw new Error('This account already exists!');
     }
-    password = await hashpassword(password);
+    data.password = await hashpassword(data.password);
     const account = this.accountRepository.create({
-      email: email,
-      password: password
+      email: data.email,
+      password: data.password
     });
 
     return await this.accountRepository.save(account);
