@@ -13,7 +13,7 @@ export class CreateAccountAndPatient {
       const { email, password } = request.body;
 
       const account = await this.createAccountUseCase.execute({
-        email
+        email,
         password
       });
 

@@ -1,7 +1,7 @@
 import { PostgresAccountRepository } from "../../infra/repositories/PostgresAccountRepository";
 import hashpassword from "../../infra/utils/hashpassword";
 import { ICreateAccountRequestDTO } from "../DTOs/CreateAccount";
-import { Account } from "../entities/account";
+import { Account } from "../entities/Account";
 
 export class CreateAccount {
   private accountRepository;
