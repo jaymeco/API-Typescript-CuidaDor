@@ -30,7 +30,6 @@ export class createPatientTable1616425940216 implements MigrationInterface {
         {
           name: 'gender',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'birthday',
@@ -40,47 +39,38 @@ export class createPatientTable1616425940216 implements MigrationInterface {
         {
           name: 'occupation',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'state',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'city',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'weight',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'height',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'imc',
           type: 'int',
-          default: 'Não informado'
         },
         {
           name: 'blood_type',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'condition',
           type: 'varchar',
-          default: 'Não informado'
         },
         {
           name: 'cpf',
           type: 'varchar',
-          default: 'Não informado'
         }
       ],
       foreignKeys: [

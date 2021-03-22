@@ -2,7 +2,7 @@ import { Column, PrimaryColumn, Entity, OneToOne, JoinColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Account } from './Account';
 
-@Entity()
+@Entity('patients')
 export class Patient {
   @PrimaryColumn()
   public readonly id: string;
@@ -56,6 +56,17 @@ export class Patient {
   constructor (){
     if(!this.id){
       this.id = uuid();
+
     }
+    this.gender = 'Não informado';
+    this.height = 'Não informado';
+    this.state = 'Não informado';
+    this.weight = 'Não informado';
+    this.occupation = 'Não informado';
+    this.imc = 0;
+    this.condition = 'Não informado';
+    this.blood_type = 'Não informado';
+    this.cpf = 'Não informado';
+    this.city = 'Não informado';
   }
 }

@@ -20,7 +20,7 @@ export class CreateAccountAndPatient {
         password
       });
 
-      const patient = this.createPatientUseCase.execute({
+      const patient = await this.createPatientUseCase.execute({
         account_id: account.id,
         ...rest
       });
