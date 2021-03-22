@@ -1,7 +1,7 @@
 import { Column, PrimaryColumn, Entity, CreateDateColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-@Entity('accounts')
+@Entity('account')
 export class Account {
 
   @PrimaryColumn()
@@ -14,7 +14,7 @@ export class Account {
   public password: string;
 
   @CreateDateColumn()
-  public create_at: Date;
+  public created_at: Date;
 
   constructor (){
     if(!this.id){
