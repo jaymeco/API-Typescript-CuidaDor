@@ -2,7 +2,8 @@ import { Column, OneToOne, JoinColumn, Entity, PrimaryColumn, OneToMany } from "
 import { v4 as uuid } from 'uuid';
 import { Account } from "./Account";
 
-export class Professionals{
+@Entity('professionals')
+export class Professional{
 
   @PrimaryColumn()
   public readonly id: string;
