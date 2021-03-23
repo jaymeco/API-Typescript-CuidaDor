@@ -7,3 +7,5 @@ const createAccountUseCase = new CreateAccount();
 const createProfessionalUseCase = new CreateProfessional();
 
 const createAccountAndProfessional = new CreateAccountAndProfessional(createAccountUseCase, createProfessionalUseCase);
+
+export { createAccountAndProfessional };
