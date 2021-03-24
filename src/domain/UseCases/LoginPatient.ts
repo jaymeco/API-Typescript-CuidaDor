@@ -2,10 +2,8 @@ import { getCustomRepository } from "typeorm";
 import { IJwtManagerContract } from "../../infra/repositories/contracts/IJwtManagerContract";
 import { PostgresAccountRepository } from "../../infra/repositories/PostgresAccountRepository";
 import { PostgresPatientRepository } from "../../infra/repositories/PostgresPatientRepository";
-import { PostgresProfessionalRepository } from "../../infra/repositories/PostgresProfessionalRepository";
 import comparePassword from "../../infra/utils/comparePassword";
 import { ILoginRequestDTO, ILoginResponseDTO } from "../DTOs/Login";
-import { Patient } from "../entities/Patient";
 
 export class LoginPatient {
   private jwtManagerRepository;
@@ -17,11 +15,9 @@ export class LoginPatient {
   async execute(data: ILoginRequestDTO): Promise<ILoginResponseDTO> {
     const postgresAccountRepository = getCustomRepository(PostgresAccountRepository);
     const postgresPatientRepository = getCustomRepository(PostgresPatientRepository);
-    const postgresProfessionalRepository = getCustomRepository(PostgresProfessionalRepository);
 
     const accountExists = await postgresAccountRepository.findOne({
-      where: { email: data.email },
-      relations: ['patient']
+      where: { email: data.email }
      });
 
     if(!accountExists) {
@@ -32,12 +28,18 @@ export class LoginPatient {
       throw new Error('Email or Password are invalid!');
     }
 
+    const patient = await postgresPatientRepository.findOne({ account_id: accountExists.id });
+
+    if(!patient){
+      throw new Error('Email or Password are invalid!');
+    }
+
     const token = this.jwtManagerRepository.generateToken(accountExists.id);
 
     return {
       role: 'Patient',
       token,
-      user: accountExists
+      user: Object.assign(accountExists, patient),
     }
   }
 }
