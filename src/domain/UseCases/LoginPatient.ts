@@ -3,6 +3,7 @@ import { IJwtManagerContract } from "../../infra/repositories/contracts/IJwtMana
 import { PostgresAccountRepository } from "../../infra/repositories/PostgresAccountRepository";
 import { PostgresPatientRepository } from "../../infra/repositories/PostgresPatientRepository";
 import { PostgresProfessionalRepository } from "../../infra/repositories/PostgresProfessionalRepository";
+import comparePassword from "../../infra/utils/comparePassword";
 import { ILoginRequestDTO, ILoginResponseDTO } from "../DTOs/Login";
 import { Patient } from "../entities/Patient";
 
@@ -27,7 +28,7 @@ export class LoginPatient {
       throw new Error('Email or Password are invalid!');
     }
 
-    if(accountExists.password !== data.password){
+    if(!await comparePassword(accountExists.password, data.password)){
       throw new Error('Email or Password are invalid!');
     }
 
