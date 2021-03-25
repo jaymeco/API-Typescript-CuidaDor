@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { createAccountPatientController } from './main/CreateAccountAndPatient';
 import { createAccountAndProfessional } from './main/CreateAccountAndProfessional';
+import { createGoalController } from './main/CreateGoal';
 import { loginPatientController } from './main/LoginPatient';
 import { loginProfessionalController } from './main/LoginProfessional';
 const routes = Router();
@@ -19,6 +20,10 @@ routes.post('/login/patient', (request, response)=>{
 
 routes.post('/login/professional', (request, response)=>{
   return loginProfessionalController.handle(request, response);
+});
+
+routes.post('/goals', (request, response)=>{
+  return createGoalController.handle(request, response);
 });
 
 export { routes };
