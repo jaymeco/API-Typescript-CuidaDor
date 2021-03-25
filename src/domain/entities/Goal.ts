@@ -35,5 +35,7 @@ export class Goal {
     if(!this.id){
       this.id = uuid();
     }
+
+    this.checked = false;
   }
 }
