@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ConectProfessionalWithPatient } from "../../domain/UseCases/ConectProfessionalWithPatient";
 
-export class ConectPatientWithProfessionalController {
+export class ConectProfessionalWithPatientController {
   private conectPatientWithProssionalUseCase;
 
   constructor (conectPatientWithProssionalUseCase: ConectProfessionalWithPatient){
