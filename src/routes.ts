@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { conectProfessionalWithPatientController } from './main/ConectPatientWithProfessional';
 import { createAccountPatientController } from './main/CreateAccountAndPatient';
 import { createAccountAndProfessional } from './main/CreateAccountAndProfessional';
 import { createGoalController } from './main/CreateGoal';
@@ -24,6 +25,10 @@ routes.post('/login/professional', (request, response)=>{
 
 routes.post('/goals', (request, response)=>{
   return createGoalController.handle(request, response);
+});
+
+routes.post('/conect_professional_patient', (request, response)=>{
+  return conectProfessionalWithPatientController.handle(request, response);
 });
 
 export { routes };
