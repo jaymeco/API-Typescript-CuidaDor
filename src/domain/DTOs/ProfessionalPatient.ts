@@ -1,5 +1,4 @@
-export interface ProfessionalPatientRequestDTO {
-  patient_id: string;
-  professional_id: string;
+export interface IProfessionalPatientRequestDTO {
+  id: string;
   email: string;
 }
