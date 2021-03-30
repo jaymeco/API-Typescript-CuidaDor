@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Patient } from './Patient';
 import { Professional } from './Professional';
 
-@Entity()
+@Entity('professionals_patients')
 export class ProfessionalPatient {
   @PrimaryColumn()
   public readonly id: string;
