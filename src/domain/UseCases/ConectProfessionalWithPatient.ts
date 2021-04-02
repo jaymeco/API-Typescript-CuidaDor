@@ -26,6 +26,10 @@ export class ConectProfessionalWithPatient {
 
       const patient = await postgresPatientRepository.findOne({ id: data.id });
 
+      if (!professionalExists) {
+        throw new Error('This professional does not exists!');
+      }
+
       if (!patient) {
         throw new Error('This patient does not exists!');
       }
@@ -44,7 +48,7 @@ export class ConectProfessionalWithPatient {
 
       await postgresProfessionalPatientRepository.save(professionalPatinet);
 
-      return patient;
+      return professionalExists;
     }
     const professional = await postgresProfessionalRepository.findOne({ id: data.id });
 
@@ -67,6 +71,6 @@ export class ConectProfessionalWithPatient {
 
     await postgresProfessionalPatientRepository.save(professionalPatinet);
 
-    return professional;
+    return patientExists;
   }
 }
