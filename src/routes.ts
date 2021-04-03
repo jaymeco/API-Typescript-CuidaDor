@@ -3,6 +3,7 @@ import { conectProfessionalWithPatientController } from './main/ConectPatientWit
 import { createAccountPatientController } from './main/CreateAccountAndPatient';
 import { createAccountAndProfessional } from './main/CreateAccountAndProfessional';
 import { createGoalController } from './main/CreateGoal';
+import { getGoalsController } from './main/GetGoals';
 import { loginPatientController } from './main/LoginPatient';
 import { loginProfessionalController } from './main/LoginProfessional';
 const routes = Router();
@@ -29,6 +30,10 @@ routes.post('/goals', (request, response)=>{
 
 routes.post('/conect_professional_patient', (request, response)=>{
   return conectProfessionalWithPatientController.handle(request, response);
+});
+
+routes.get('/goals/:id', (request, response)=>{
+  return getGoalsController.handle(request, response);
 });
 
 export { routes };
