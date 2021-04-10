@@ -39,7 +39,7 @@ export class ConectProfessionalWithPatient {
       });
 
       if (professionalPatientExists) {
-        throw new Error('This patient is already conected with you!');
+        throw new Error('This professional is already conected with you!');
       }
       const professionalPatinet = postgresProfessionalPatientRepository.create({
         patient_id: data.id,
@@ -61,7 +61,7 @@ export class ConectProfessionalWithPatient {
     });
 
     if (professionalPatientExists) {
-      throw new Error('This professional is already conected with you!');
+      throw new Error('This patient is already conected with you!');
     }
 
     const professionalPatinet = postgresProfessionalPatientRepository.create({

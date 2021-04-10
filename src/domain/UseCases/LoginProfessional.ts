@@ -35,7 +35,7 @@ export class LoginProfessional {
     const token = this.jwtManagerRepository.generateToken(accountExists.id);
 
     return {
-      role: 'Patient',
+      role: 'Professional',
       token,
       user: Object.assign(accountExists, professional),
     }
