@@ -37,7 +37,7 @@ routes.get('/goals/:id', (request, response)=>{
   return getGoalsController.handle(request, response);
 });
 
-routes.patch('/goals/:id', (request, response)=>{
+routes.patch('/goals', (request, response)=>{
   return checkGoalsController.handle(request, response);
 });
 
