@@ -3,6 +3,7 @@ import { checkGoalsController } from './main/CheckGoals';
 import { conectProfessionalWithPatientController } from './main/ConectPatientWithProfessional';
 import { createAccountPatientController } from './main/CreateAccountAndPatient';
 import { createAccountAndProfessional } from './main/CreateAccountAndProfessional';
+import { createDaliyAssessmentController } from './main/CreateDailyAssessment';
 import { createGoalController } from './main/CreateGoal';
 import { getGoalsController } from './main/GetGoals';
 import { loginPatientController } from './main/LoginPatient';
@@ -39,6 +40,10 @@ routes.get('/goals/:id', (request, response)=>{
 
 routes.patch('/goals', (request, response)=>{
   return checkGoalsController.handle(request, response);
+});
+
+routes.post('/daily_assessment', (request, response)=>{
+  return createDaliyAssessmentController.handle(request, response);
 });
 
 export { routes };
