@@ -24,4 +24,6 @@ export class DailyAssessment {
   public question_10: number;
 
   public question_11: number;
+
+  public created_at: Date;
 }
