@@ -32,7 +32,7 @@ export class Goal {
   public professional: Professional;
 
   @Column()
-  public frenquency_per_week: number;
+  public frequency_per_week: number;
 
   @Column()
   public runtime: number;
