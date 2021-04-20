@@ -31,6 +31,12 @@ export class Goal {
   @JoinColumn({ name: 'professional_id' })
   public professional: Professional;
 
+  @Column()
+  public frenquency_per_week: number;
+
+  @Column()
+  public runtime: number;
+
   constructor () {
     if(!this.id){
       this.id = uuid();
