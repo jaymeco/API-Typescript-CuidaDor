@@ -48,6 +48,9 @@ export class Professional{
   @Column()
   public crm: string;
 
+  @Column()
+  public service_locations: string;
+
   constructor (){
     if(!this.id){
       this.id = uuid();
@@ -60,5 +63,6 @@ export class Professional{
     this.cpf = 'Não informado';
     this.crm = 'Não informado';
     this.city = 'Não informado';
+    this.service_locations = 'Não informado';
   }
 }
