@@ -49,4 +49,10 @@ export class DailyAssessment {
 
   @CreateDateColumn()
   public created_at: Date;
+
+  constructor () {
+    if(!this.id){
+      this.id = uuid();
+    }
+  }
 }

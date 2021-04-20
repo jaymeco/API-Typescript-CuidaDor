@@ -92,6 +92,7 @@ export class createDailyAssessmentTable1618679892863 implements MigrationInterfa
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+      await queryRunner.dropTable('daily_assessments');
     }
 
 }
