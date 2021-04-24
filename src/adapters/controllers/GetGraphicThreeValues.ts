@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetGraphicThreeValues } from "../domain/UseCases/GetGraphicThreeVales";
+import { GetGraphicThreeValues } from "../../domain/UseCases/GetGraphicThreeVales";
 
 export class GetGraphicThreeValuesController {
   private getGraphicThreeValuesUseCase;
