@@ -6,6 +6,7 @@ import { createAccountAndProfessional } from './main/CreateAccountAndProfessiona
 import { createDaliyAssessmentController } from './main/CreateDailyAssessment';
 import { createGoalController } from './main/CreateGoal';
 import { getGoalsController } from './main/GetGoals';
+import { getGraphicThreeValuesController } from './main/GetGraphicThreeValues';
 import { loginPatientController } from './main/LoginPatient';
 import { loginProfessionalController } from './main/LoginProfessional';
 const routes = Router();
@@ -45,5 +46,9 @@ routes.patch('/goals', (request, response)=>{
 routes.post('/daily_assessment', (request, response)=>{
   return createDaliyAssessmentController.handle(request, response);
 });
+
+routes.get('/graphics/3/:id', (request, response)=>{
+  return getGraphicThreeValuesController.handle(request, response);
+})
 
 export { routes };
