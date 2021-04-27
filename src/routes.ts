@@ -6,6 +6,7 @@ import { createAccountAndProfessional } from './main/CreateAccountAndProfessiona
 import { createDaliyAssessmentController } from './main/CreateDailyAssessment';
 import { createGoalController } from './main/CreateGoal';
 import { createPainEducationController } from './main/CreatePainEducation';
+import { getAllPainEducationController } from './main/GetAllPainEducation';
 import { getGoalsController } from './main/GetGoals';
 import { getGraphicThreeValuesController } from './main/GetGraphicThreeValues';
 import { loginPatientController } from './main/LoginPatient';
@@ -54,6 +55,10 @@ routes.get('/graphics/3/:id', (request, response)=>{
 
 routes.post('/pain_education', (request, response)=>{
   return createPainEducationController.handle(request, response);
+});
+
+routes.get('/pain_education', (request, response)=>{
+  return getAllPainEducationController.handle(request, response);
 });
 
 export { routes };
