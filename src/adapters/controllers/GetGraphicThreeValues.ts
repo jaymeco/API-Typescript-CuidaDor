@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetGraphicThreeValues } from "../../domain/UseCases/GetGraphicThreeVales";
+import { GetGraphicThreeValues } from "../../domain/UseCases/GetGraphicThreeValues";
 
 export class GetGraphicThreeValuesController {
   private getGraphicThreeValuesUseCase;
@@ -11,8 +11,12 @@ export class GetGraphicThreeValuesController {
   async handle(request: Request, response: Response): Promise<Response> {
     try {
       const { id } = request.params;
+      const { year } = request.query;
 
-      const dailies = await this.getGraphicThreeValuesUseCase.execute(id);
+      const dailies = await this.getGraphicThreeValuesUseCase.execute(
+        id,
+        year as string
+      );
 
       return response.status(200).json(dailies);
     } catch (error) {

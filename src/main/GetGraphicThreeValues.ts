@@ -1,4 +1,4 @@
-import { GetGraphicThreeValues } from '../domain/UseCases/GetGraphicThreeVales';
+import { GetGraphicThreeValues } from '../domain/UseCases/GetGraphicThreeValues';
 import { GetGraphicThreeValuesController } from '../adapters/controllers/GetGraphicThreeValues';
 
 const getGraphicThreeValuesUseCase = new GetGraphicThreeValues();
