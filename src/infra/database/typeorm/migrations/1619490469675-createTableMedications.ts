@@ -38,7 +38,7 @@ export class createTableMedications1619490469675 implements MigrationInterface {
         foreignKeys: [
           {
             name: 'FKPatient',
-            referencedTableName: 'patient',
+            referencedTableName: 'patients',
             referencedColumnNames: ['id'],
             columnNames: ['patient_id'],
             onDelete: 'CASCADE',
