@@ -1,5 +1,5 @@
 import { CreateDailyAssessment } from '../domain/UseCases/CreateDailyAssessment';
-import { CreateDailyAssessmentController } from '../adapters/controllers/CreatedailyAssessmentController';
+import { CreateDailyAssessmentController } from '../adapters/controllers/CreateDailyAssessmentController';
 
 const createDaliyAssessmentUseCase = new CreateDailyAssessment();
 
