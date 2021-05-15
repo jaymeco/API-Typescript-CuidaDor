@@ -2,11 +2,11 @@ import { getCustomRepository } from "typeorm";
 import { PostgresAccountRepository } from "../../infra/repositories/PostgresAccountRepository";
 import hashpassword from "../../infra/utils/hashpassword";
 import { ICreateAccountRequestDTO } from "../DTOs/CreateAccount";
-import { Account } from "../entities/Accounts";
+import { Accounts } from "../entities/Accounts";
 
 export class CreateAccount {
 
-  async execute(data: ICreateAccountRequestDTO): Promise<Account> {
+  async execute(data: ICreateAccountRequestDTO): Promise<Accounts> {
     const postgresAccountRepository = getCustomRepository(PostgresAccountRepository);
     const accountExists = await postgresAccountRepository.findOne({ email: data.email });
 

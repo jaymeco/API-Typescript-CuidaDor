@@ -2,7 +2,7 @@ import { Column, PrimaryColumn, Entity, CreateDateColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity('account')
-export class Account {
+export class Accounts {
 
   @PrimaryColumn()
   public readonly id: string;

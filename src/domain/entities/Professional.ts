@@ -1,6 +1,6 @@
 import { Column, OneToOne, JoinColumn, Entity, PrimaryColumn, OneToMany } from "typeorm";
 import { v4 as uuid } from 'uuid';
-import { Account } from "./Accounts";
+import { Accounts } from "./Accounts";
 
 @Entity('professionals')
 export class Professional{
@@ -8,9 +8,9 @@ export class Professional{
   @PrimaryColumn()
   public readonly id: string;
 
-  @OneToOne(()=> Account)
+  @OneToOne(()=> Accounts)
   @JoinColumn({ name: 'account_id' })
-  public account: Account;
+  public account: Accounts;
 
   @Column()
   public account_id: string;
