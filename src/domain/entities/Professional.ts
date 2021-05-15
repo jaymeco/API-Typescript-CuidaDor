@@ -1,6 +1,6 @@
 import { Column, OneToOne, JoinColumn, Entity, PrimaryColumn, OneToMany } from "typeorm";
 import { v4 as uuid } from 'uuid';
-import { Account } from "./account";
+import { Account } from "./Account";
 
 @Entity('professionals')
 export class Professional{
