@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createAccountAndProfessional = void 0;
+const CreateProfessional_1 = require("../domain/UseCases/CreateProfessional");
+const CreateAccont_1 = require("../domain/UseCases/CreateAccont");
+const CreateAccountAndProfessional_1 = require("../adapters/controllers/CreateAccountAndProfessional");
+const createAccountUseCase = new CreateAccont_1.CreateAccount();
+const createProfessionalUseCase = new CreateProfessional_1.CreateProfessional();
+const createAccountAndProfessional = new CreateAccountAndProfessional_1.CreateAccountAndProfessional(createAccountUseCase, createProfessionalUseCase);
+exports.createAccountAndProfessional = createAccountAndProfessional;

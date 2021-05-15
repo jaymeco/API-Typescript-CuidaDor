@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loginProfessionalController = void 0;
+const LoginProfessional_1 = require("../domain/UseCases/LoginProfessional");
+const JwtManagerRepository_1 = require("../infra/repositories/JwtManagerRepository");
+const LoginProfessionalController_1 = require("../adapters/controllers/LoginProfessionalController");
+const jwtManagerRepository = new JwtManagerRepository_1.JwtManagerRepository();
+const loginProfessionalUseCase = new LoginProfessional_1.LoginProfessional(jwtManagerRepository);
+const loginProfessionalController = new LoginProfessionalController_1.LoginProfessionalController(loginProfessionalUseCase);
+exports.loginProfessionalController = loginProfessionalController;

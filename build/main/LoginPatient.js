@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loginPatientController = void 0;
+const JwtManagerRepository_1 = require("../infra/repositories/JwtManagerRepository");
+const LoginPatient_1 = require("../domain/UseCases/LoginPatient");
+const LoginPatientController_1 = require("../adapters/controllers/LoginPatientController");
+const jwtManagerRepository = new JwtManagerRepository_1.JwtManagerRepository();
+const loginPatientUseCase = new LoginPatient_1.LoginPatient(jwtManagerRepository);
+const loginPatientController = new LoginPatientController_1.LoginPatientController(loginPatientUseCase);
+exports.loginPatientController = loginPatientController;
