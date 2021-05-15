@@ -1,4 +1,4 @@
-import { Column, PrimaryColumn, Entity, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, PrimaryColumn, Entity, CreateDateColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Patient } from './Patient';
 
@@ -7,9 +7,9 @@ export class DailyAssessment {
   @PrimaryColumn()
   public readonly id: string;
 
-  @ManyToOne(()=> Patient)
+  @OneToMany(()=> Patient, patient=>patient.daily_assessments)
   @JoinColumn({ name: 'patient_id' })
-  public patient: Patient
+  public patient: Patient;
 
   @Column()
   public patient_id: string;

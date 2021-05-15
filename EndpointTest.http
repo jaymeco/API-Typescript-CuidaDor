@@ -1,0 +1,113 @@
+### Cadastro Paciente
+POST http://localhost:3333/patients HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "teste",
+    "first_name": "Matheus",
+    "last_name": "Augusto",
+    "birthday": "18/10/1995"
+
+}
+
+### Cadastro Profisional
+POST http://localhost:3333/professionals HTTP/1.1
+content-type: application/json
+
+{
+    "email": "profi@gmail.com",
+    "password": "teste",
+    "first_name": "João",
+    "last_name": "Augusto",
+    "birthday": "18/10/1995"
+
+}
+
+
+### Login Paciente
+POST http://localhost:3333/login/patient HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "teste"
+}
+
+### Login profissional
+POST http://localhost:3333/login/professional HTTP/1.1
+content-type: application/json
+
+{
+    "email": "profi@gmail.com",
+    "password": "teste"
+}
+
+### Criar Metas
+POST http://localhost:3333/goals HTTP/1.1
+content-type: application/json
+
+{
+    "content": "",
+    "patient_id": "",
+    "professional_id": "",
+    "frequency_per_week": "",
+    "runtime": ""
+}
+
+### Conectar Profissional e Paciente
+POST http://localhost:3333/conect_professional_patient HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}
+
+### Buscar meta pelo Id
+Get http://localhost:3333/goals/:id HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}
+
+### Fazer alteração na meta
+PATCH  http://localhost:3333/goals HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}
+
+### Enviar Avaliação diaria
+PATCH  http://localhost:3333/daily_assessment HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}
+
+
+### Retornar dados do gráfico
+GET   http://localhost:3333/graphics/3/:id HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}
+
+### Armazenar conteudo de educação em dor
+POST    http://localhost:3333/pain_education HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}
+
+### Retornar conteudo de educação em dor
+GET   http://localhost:3333/pain_education HTTP/1.1
+content-type: application/json
+
+{
+ "content": "",
+}

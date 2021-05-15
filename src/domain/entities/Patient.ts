@@ -1,6 +1,8 @@
-import { Column, PrimaryColumn, Entity, OneToOne, JoinColumn } from 'typeorm';
+import { Column, PrimaryColumn, Entity, OneToOne, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Account } from './Account';
+import { DailyAssessment } from './DailyAssessment';
+import { Medications } from './Medications';
 
 @Entity('patients')
 export class Patient {
@@ -10,6 +12,12 @@ export class Patient {
   @OneToOne(()=> Account)
   @JoinColumn({ name: 'account_id' })
   public account: Account;
+
+  @OneToMany(()=>Medications, medications=>medications.patient)
+  public medications: Medications[];
+
+  @ManyToOne(()=>DailyAssessment, dailyAssessment=>dailyAssessment.patient)
+  public daily_assessments: DailyAssessment[];
 
   @Column()
   public account_id: string;
