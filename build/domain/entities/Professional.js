@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Professional = void 0;
 const typeorm_1 = require("typeorm");
 const uuid_1 = require("uuid");
-const Account_1 = require("./Account");
+const account_1 = require("./account");
 let Professional = class Professional {
     constructor() {
         if (!this.id) {
@@ -34,9 +34,9 @@ __decorate([
     __metadata("design:type", String)
 ], Professional.prototype, "id", void 0);
 __decorate([
-    typeorm_1.OneToOne(() => Account_1.Account),
+    typeorm_1.OneToOne(() => account_1.Account),
     typeorm_1.JoinColumn({ name: 'account_id' }),
-    __metadata("design:type", Account_1.Account)
+    __metadata("design:type", account_1.Account)
 ], Professional.prototype, "account", void 0);
 __decorate([
     typeorm_1.Column(),

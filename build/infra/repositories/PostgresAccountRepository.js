@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostgresAccountRepository = void 0;
 const typeorm_1 = require("typeorm");
-const Account_1 = require("../../domain/entities/Account");
+const account_1 = require("../../domain/entities/account");
 let PostgresAccountRepository = class PostgresAccountRepository extends typeorm_1.Repository {
 };
 PostgresAccountRepository = __decorate([
-    typeorm_1.EntityRepository(Account_1.Account)
+    typeorm_1.EntityRepository(account_1.Account)
 ], PostgresAccountRepository);
 exports.PostgresAccountRepository = PostgresAccountRepository;

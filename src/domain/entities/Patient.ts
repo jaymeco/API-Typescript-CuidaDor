@@ -1,6 +1,6 @@
 import { Column, PrimaryColumn, Entity, OneToOne, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Account } from './Account';
+import { Account } from './account';
 import { DailyAssessment } from './DailyAssessment';
 import { Medications } from './Medications';
 
