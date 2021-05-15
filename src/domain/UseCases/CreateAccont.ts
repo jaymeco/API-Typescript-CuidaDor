@@ -2,7 +2,7 @@ import { getCustomRepository } from "typeorm";
 import { PostgresAccountRepository } from "../../infra/repositories/PostgresAccountRepository";
 import hashpassword from "../../infra/utils/hashpassword";
 import { ICreateAccountRequestDTO } from "../DTOs/CreateAccount";
-import { Account } from "../entities/Account";
+import { Account } from "../entities/Accounts";
 
 export class CreateAccount {
 
