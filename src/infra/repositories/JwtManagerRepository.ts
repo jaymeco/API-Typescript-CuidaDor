@@ -1,4 +1,4 @@
-import { IJwtManagerContract } from "./contracts/IJwtManagerContract";
+import { IJwtManagerContract, IResponse } from "./contracts/IJwtManagerContract";
 import jwt from 'jsonwebtoken';
 
 export class JwtManagerRepository implements IJwtManagerContract {
@@ -10,13 +10,26 @@ export class JwtManagerRepository implements IJwtManagerContract {
     return token;
   }
 
-  verifyToken(token: string): boolean {
-    const decoded = jwt.verify(token, process.env.SECRET || '022dw2daw66dw9adw5a5');
+  verifyToken(token: string): IResponse {
+    try {
+      const decoded = jwt.verify(token, process.env.SECRET || '022dw2daw66dw9adw5a5');
 
-    if(!decoded){
-      return false
+      return {
+        message: 'Token válido',
+        valid: true
+      }
+    }catch (error) {
+      if(error.name === 'TokenExpiredError') {
+        return {
+          message: 'Token expirou',
+          valid: false,
+        };
+      }
+
+      return {
+        message: 'Token invalido',
+        valid: false
+      }
     }
-
-    return true;
   }
 }
