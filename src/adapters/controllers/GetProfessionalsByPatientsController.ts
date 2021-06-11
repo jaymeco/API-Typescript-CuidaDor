@@ -12,7 +12,7 @@ export class GetProfessionalsByPatientsController {
     try {
       const { id } = request.params;
 
-      const professionals = this.getProfessionalsByPatientUseCase.execute(id);
+      const professionals = await this.getProfessionalsByPatientUseCase.execute(id);
 
       return response.status(200).json(professionals);
     } catch (error) {

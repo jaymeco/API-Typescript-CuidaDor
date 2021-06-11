@@ -1,5 +1,5 @@
 import { JwtManagerRepository } from '../infra/repositories/JwtManagerRepository';
-import { AuthRoutes } from '../adapters/middlewares/authRotes';
+import { AuthRoutes } from '../adapters/middlewares/AuthRotes';
 
 const jwtManagerRepository = new JwtManagerRepository();
 

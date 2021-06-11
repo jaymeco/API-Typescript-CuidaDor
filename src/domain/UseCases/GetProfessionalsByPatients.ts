@@ -11,12 +11,12 @@ export class GetProfessionalByPatients {
     const patientExists = await postgresPatientRepository.findOne({ id });
 
     if(!patientExists){
-      throw new Error('Esse paciente não existe!');
+      throw new Error(`Esse paciente não existe!`);
     }
 
-    const professionals = postgresProfessionalPatientRepository.find({
+    const professionals = await postgresProfessionalPatientRepository.find({
       where: { patient_id: id },
-      relations: ['professionals'],
+      relations: ['professional']
     });
 
     return professionals;

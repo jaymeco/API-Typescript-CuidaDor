@@ -8,6 +8,7 @@ import { createPainEducationController } from './main/CreatePainEducation';
 import { getAllPainEducationController } from './main/GetAllPainEducation';
 import { getGoalsController } from './main/GetGoals';
 import { getGraphicThreeValuesController } from './main/GetGraphicThreeValues';
+import { getProfessionalsByPatientsController } from './main/GetProfessionalsByPatients';
 
 const authRoutes = Router();
 
@@ -43,6 +44,10 @@ authRoutes.post('/pain_education', (request, response)=>{
 
 authRoutes.get('/pain_education', (request, response)=>{
   return getAllPainEducationController.handle(request, response);
+});
+
+authRoutes.get('/patient/:id/professionals', (request, response)=>{
+  return getProfessionalsByPatientsController.handle(request, response);
 });
 
 export { authRoutes };

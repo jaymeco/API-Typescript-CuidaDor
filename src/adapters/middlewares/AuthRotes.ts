@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { IJwtManagerContract } from '../../infra/repositories/contracts/IJwtManagerContract';
+import { JwtManagerRepository } from '../../infra/repositories/JwtManagerRepository';
 
 
 export class AuthRoutes {
@@ -27,7 +28,15 @@ export class AuthRoutes {
       return response.status(401).json({ error: "O token informado está mal formatado!" });
     }
 
-    this.jwtManagerRepository.verifyToken(token);
+    const jwtManagerRepository = new JwtManagerRepository()
+
+    if(!jwtManagerRepository.verifyToken(token).valid){
+      return response.status(401).json({
+        error: jwtManagerRepository.verifyToken(token).message
+      });
+    }
+
+
 
     return next();
   }
