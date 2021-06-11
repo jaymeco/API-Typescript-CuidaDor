@@ -1,6 +1,7 @@
-import { Column, OneToOne, JoinColumn, Entity, PrimaryColumn, OneToMany } from "typeorm";
+import { Column, OneToOne, JoinColumn, Entity, PrimaryColumn, OneToMany, ManyToMany } from "typeorm";
 import { v4 as uuid } from 'uuid';
 import { Accounts } from "./Accounts";
+import { ProfessionalPatient } from "./ProfessionalPatient";
 
 @Entity('professionals')
 export class Professional{
@@ -11,6 +12,9 @@ export class Professional{
   @OneToOne(()=> Accounts)
   @JoinColumn({ name: 'account_id' })
   public account: Accounts;
+
+  @OneToMany(()=> ProfessionalPatient, professionalPatient=> professionalPatient.professional)
+  public professional_patients: ProfessionalPatient[];
 
   @Column()
   public account_id: string;

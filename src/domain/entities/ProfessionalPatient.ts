@@ -1,4 +1,4 @@
-import { PrimaryColumn, Column, CreateDateColumn, JoinColumn, Entity, ManyToMany } from 'typeorm';
+import { PrimaryColumn, Column, CreateDateColumn, JoinColumn, Entity, ManyToMany, JoinTable, ManyToOne } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { Patient } from './Patient';
 import { Professional } from './Professional';
@@ -17,11 +17,11 @@ export class ProfessionalPatient {
   @CreateDateColumn()
   public created_at: Date;
 
-  @ManyToMany(()=> Patient)
-  @JoinColumn({ name: 'patient_id' })
+  @ManyToOne(()=> Patient, patient=>patient.professional_patients)
+
   public patient: Patient;
 
-  @ManyToMany(()=> Patient)
+  @ManyToOne(()=> Professional, professional=>professional.professional_patients)
   @JoinColumn({ name: 'professional_id' })
   public professional: Professional;
 
