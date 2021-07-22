@@ -5,6 +5,7 @@ import { conectProfessionalWithPatientController } from './main/ConectPatientWit
 import { createDaliyAssessmentController } from './main/CreateDailyAssessment';
 import { createGoalController } from './main/CreateGoal';
 import { createPainEducationController } from './main/CreatePainEducation';
+import { getAccessPatientController } from './main/GetAccessPatient';
 import { getAllPainEducationController } from './main/GetAllPainEducation';
 import { getGoalsController } from './main/GetGoals';
 import { getGraphicThreeValuesController } from './main/GetGraphicThreeValues';
@@ -48,6 +49,10 @@ authRoutes.get('/pain_education', (request, response)=>{
 
 authRoutes.get('/patient/:id/professionals', (request, response)=>{
   return getProfessionalsByPatientsController.handle(request, response);
+});
+
+authRoutes.get('/patient/:patient_id/access', (request, response)=>{
+  return getAccessPatientController.handle(request, response);
 });
 
 export { authRoutes };
