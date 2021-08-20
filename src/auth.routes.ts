@@ -23,7 +23,7 @@ authRoutes.post('/conect_professional_patient', (request, response)=>{
   return conectProfessionalWithPatientController.handle(request, response);
 });
 
-authRoutes.get('/goals/:id', (request, response)=>{
+authRoutes.get('/goals/:patient_id', (request, response)=>{
   return getGoalsController.handle(request, response);
 });
 
