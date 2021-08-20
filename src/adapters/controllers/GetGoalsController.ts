@@ -10,9 +10,9 @@ export class GetGoalsController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const { id } = request.params;
+      const { patient_id } = request.params;
 
-      const goals = await this.getGoalsUseCase.execute(id);
+      const goals = await this.getGoalsUseCase.execute(patient_id);
 
       return response.status(200).json(goals);
     } catch (error) {
