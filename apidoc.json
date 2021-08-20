@@ -1,0 +1,7 @@
+{
+  "name": "CuiDador - Serviço da plataforma",
+  "version": "0.1.0",
+  "description": "Serviço para os escopos da plataforma CuiDador",
+  "title": "API - Cuidador",
+  "url": "https://api-cuidador.herokuapp.com"
+}
