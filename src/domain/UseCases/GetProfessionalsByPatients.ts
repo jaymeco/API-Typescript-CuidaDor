@@ -16,7 +16,8 @@ export class GetProfessionalByPatients {
 
     const professionals = await postgresProfessionalPatientRepository.find({
       where: { patient_id: id },
-      relations: ['professional']
+      relations: ['professional'],
+      select: ['created_at'],
     });
 
     return professionals;
