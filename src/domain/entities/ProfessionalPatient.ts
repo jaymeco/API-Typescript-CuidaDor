@@ -18,7 +18,7 @@ export class ProfessionalPatient {
   public created_at: Date;
 
   @ManyToOne(()=> Patient, patient=>patient.professional_patients)
-
+  @JoinColumn({ name: 'patient_id' })
   public patient: Patient;
 
   @ManyToOne(()=> Professional, professional=>professional.professional_patients)
