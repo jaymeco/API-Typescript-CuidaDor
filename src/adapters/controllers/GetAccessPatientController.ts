@@ -11,11 +11,12 @@ export class GetAccessPatientController {
   async handle(request: Request, response: Response): Promise<Response> {
     try {
       const { patient_id } = request.params;
+      const { data } = request.query;
 
-      const access = await this.getAccessPatientUseCase.execute(patient_id);
+      const access = await this.getAccessPatientUseCase.execute(patient_id, data as string);
 
       return response.status(200).json({ access });
-    } catch (error) {
+    } catch (error: any) {
       return response.status(400).json({
         message: error.message
       });
