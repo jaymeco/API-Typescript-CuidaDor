@@ -11,6 +11,7 @@ import { getGoalsController } from './main/GetGoals';
 import { getGraphicThreeValuesController } from './main/GetGraphicThreeValues';
 import { getPatientsByProfessionalController } from './main/GetPatientsByProfessional';
 import { getProfessionalsByPatientsController } from './main/GetProfessionalsByPatients';
+import { getPatientController } from './main/GetPatient';
 
 const authRoutes = Router();
 
@@ -60,4 +61,7 @@ authRoutes.get('/professional/:professional_id/patients', (request, response) =>
   return getPatientsByProfessionalController.handle(request, response);
 });
 
+authRoutes.get('/patient/:id', (request, response) => {
+  return getPatientController.handle(request, response);
+});
 export { authRoutes };
