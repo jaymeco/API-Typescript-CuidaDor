@@ -23,10 +23,31 @@ export class GetGoals {
       where: { patient_id: patient_id }
     });
 
+    let emAndamento: Goal[] = [];
+    let concluidos: Goal[] = [];
+    let naoConcluidos: Goal[] = [];
+
+    goals.forEach(goal => {
+      if (goal.checked) {
+        concluidos.push(goal);
+      }
+      if(!goal.checked) {
+        const dataAtual = new Date().getTime();
+        const dataInicio = new Date(goal.dataInicio).getTime();
+        const dataFinal = new Date(goal.dataFinal).getTime();
+
+        if(dataAtual >= dataFinal) {
+          naoConcluidos.push(goal);
+          return;
+        }
+        emAndamento.push(goal);
+      }
+    })
+
     return {
-      emAndamento: goals,
-      concluidos: goals,
-      naoConcluidos: goals,
+      emAndamento,
+      concluidos,
+      naoConcluidos,
     };
   }
 }
