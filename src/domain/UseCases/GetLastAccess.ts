@@ -14,6 +14,7 @@ export class GetLastAccess {
     }
 
     const lastDaily = await postgresDailyAssessmentRepository.find({
+      where: { patient_id },
       order: {
         created_at: 'DESC',
       },
