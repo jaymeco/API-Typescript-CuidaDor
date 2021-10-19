@@ -35,7 +35,10 @@ export class Goal {
   public frequency_per_week: number;
 
   @Column()
-  public runtime: number;
+  public dataInicio: Date;
+
+  @Column()
+  public dataFinal: Date;
 
   constructor () {
     if(!this.id){
