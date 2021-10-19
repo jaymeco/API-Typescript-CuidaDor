@@ -12,7 +12,7 @@ export class GetLastAccessController {
     try {
       const { patient_id } = request.params;
 
-      const lastAccess = this.getLastAccessUseCase.execute(patient_id);
+      const lastAccess = await this.getLastAccessUseCase.execute(patient_id);
 
       return response.status(200).json({
         ultimoAcesso: lastAccess,
