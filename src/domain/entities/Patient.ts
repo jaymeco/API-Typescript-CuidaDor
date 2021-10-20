@@ -65,6 +65,9 @@ export class Patient {
   @Column()
   public cpf: string;
 
+  @Column()
+  public avatar: string;
+
   constructor (){
     if(!this.id){
       this.id = uuid();
