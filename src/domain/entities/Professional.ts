@@ -32,9 +32,6 @@ export class Professional{
   public birthday: string;
 
   @Column()
-  public experience: string;
-
-  @Column()
   public state: string;
 
   @Column()
@@ -50,6 +47,15 @@ export class Professional{
   public cpf: string;
 
   @Column()
+  public telefone: string;
+
+  @Column()
+  public profissao: string;
+
+  @Column()
+  public avatar: string;
+
+  @Column()
   public crm: string;
 
   @Column()
@@ -63,8 +69,9 @@ export class Professional{
     this.specialization = 'Não informado';
     this.state = 'Não informado';
     this.about = 'Não informado';
-    this.experience = 'Não informado';
+    this.profissao = 'Não informado';
     this.cpf = 'Não informado';
+    this.telefone = 'Não informado';
     this.crm = 'Não informado';
     this.city = 'Não informado';
     this.service_locations = 'Não informado';
