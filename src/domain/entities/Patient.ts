@@ -83,5 +83,6 @@ export class Patient {
     this.blood_type = 'Não informado';
     this.cpf = 'Não informado';
     this.city = 'Não informado';
+    this.avatar = '';
   }
 }
