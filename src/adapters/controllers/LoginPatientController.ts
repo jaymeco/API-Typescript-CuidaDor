@@ -15,7 +15,7 @@ export class LoginPatientController {
       const data = await this.loginPatientUseCase.execute({ email ,password });
 
       return response.status(200).json(data);
-    } catch (error) {
+    } catch (error: any) {
       return response.status(400).json({
         message: error.message || 'Unexpected error!'
       });

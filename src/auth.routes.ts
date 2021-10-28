@@ -13,6 +13,7 @@ import { getPatientsByProfessionalController } from './main/GetPatientsByProfess
 import { getProfessionalsByPatientsController } from './main/GetProfessionalsByPatients';
 import { getPatientController } from './main/GetPatient';
 import { getLastAccessController } from './main/GetLastAccess';
+import { updatePatientController } from './main/UpdatePatients';
 
 const authRoutes = Router();
 
@@ -69,4 +70,9 @@ authRoutes.get('/patient/:id', (request, response) => {
 authRoutes.get('/patient/:patient_id/access/last', (request, response) => {
   return getLastAccessController.handle(request, response);
 });
+
+authRoutes.put('/patient/:patient_id', (request, response) => {
+  return updatePatientController.handle(request, response);
+});
+
 export { authRoutes };
