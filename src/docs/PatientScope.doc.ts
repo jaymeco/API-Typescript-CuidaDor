@@ -148,7 +148,85 @@
  */
 
 /**
- * @api {GET} patients/:patient_id/professionals      Consultar todos profissionals de um paciente
+ * @api {GET} /patient/:patient_id/professionals      Consultar todos profissionais de um paciente
  * @apiName getProfessionalsByPatient
  * @apiGroup Paciente
+ *
+ * @apiDescription Consulta todas as metas de atuais de um paciente
+ * @apiHeader (Authorization) {String} authorization    Token de autenticação fornecidado ao realizar login
+ * @apiHeaderExample {json} Header-Example:
+ *    {
+ *      "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTFkYTRhLTE4MGMtNDIxMi05NmZhLTdkNzcxNmU4ODNkYiIsImlhdCI6MTYyNjkxMzE5NCwiZXhwIjoxNjI2OTk5NTk0fQ.MoqG_AIB4xt487F2SH_ZefGTZtblPSrUKn63QdI-Y58"
+ *    }
+ *
+ * @apiParam {String} patient_id                         ID do paciente
+ *
+ * @apiSuccessExample {json} Profissionais:
+ *    HTTP/1.1 200 OK
+ *  [
+ *    {
+ *      "id": "a0e5d1c4-dbe4-4ee1-a0b0-53526a5a5783",
+ *      "professional": {
+ *        "email": "api@profissional.example.com",
+ *        "created_at": "2021-07-22T03:19:31.837Z",
+ *        "gender": "Não informado",
+ *        "specialization": "Não informado",
+ *        "state": "Não informado",
+ *        "about": "Não informado",
+ *        "experience": "Não informado",
+ *        "crm": "256987",
+ *        "service_locations": "Não informado",
+ *        "cpf": "Não informado",
+ *        "city": "Não informado",
+ *        "account_id": "0651da4a-180c-4212-96fa-7d7716e883db",
+ *        "first_name": "Jayme",
+ *        "last_name": "Anunciação",
+ *        "birthday": "03/09/2000"
+ *      }
+ *    }
+ *  ]
+ */
+
+
+/**
+ * @api {GET} /patient/:patient_id/access      Consultar o acesso do paciente
+ * @apiName GetAccessPatient
+ * @apiGroup Paciente
+ *
+ * @apiDescription Consulta a frequência de acesso do paciente
+ * @apiHeader (Authorization) {String} authorization    Token de autenticação fornecidado ao realizar login
+ * @apiHeaderExample {json} Header-Example:
+ *    {
+ *      "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTFkYTRhLTE4MGMtNDIxMi05NmZhLTdkNzcxNmU4ODNkYiIsImlhdCI6MTYyNjkxMzE5NCwiZXhwIjoxNjI2OTk5NTk0fQ.MoqG_AIB4xt487F2SH_ZefGTZtblPSrUKn63QdI-Y58"
+ *    }
+ *
+ * @apiParam {String} patient_id                         ID do paciente
+ *
+ * @apiSuccessExample {json} Profissionais:
+ *    HTTP/1.1 200 OK
+ *  {
+ *    "diasFeitos": 15,
+ *    "porcentagem": 50%
+ *  }
+ */
+
+/**
+ * @api {GET} /patient/:patient_id/access/last      Consultar o último acesso do paciente
+ * @apiName GetLastAccess
+ * @apiGroup Paciente
+ *
+ * @apiDescription Consulta a data do último acesso do paciente
+ * @apiHeader (Authorization) {String} authorization    Token de autenticação fornecidado ao realizar login
+ * @apiHeaderExample {json} Header-Example:
+ *    {
+ *      "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2NTFkYTRhLTE4MGMtNDIxMi05NmZhLTdkNzcxNmU4ODNkYiIsImlhdCI6MTYyNjkxMzE5NCwiZXhwIjoxNjI2OTk5NTk0fQ.MoqG_AIB4xt487F2SH_ZefGTZtblPSrUKn63QdI-Y58"
+ *    }
+ *
+ * @apiParam {String} patient_id                         ID do paciente
+ *
+ * @apiSuccessExample {json} Profissionais:
+ *    HTTP/1.1 200 OK
+ *  {
+ *    "ultimoAcesso": "2021-10-29T02:32:31.225Z",
+ *  }
  */
