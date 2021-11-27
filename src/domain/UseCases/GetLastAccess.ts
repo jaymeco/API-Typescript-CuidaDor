@@ -19,8 +19,12 @@ export class GetLastAccess {
         created_at: 'DESC',
       },
       take: 1,
-    })
+    });
 
-    return new Date(lastDaily[0].created_at).toISOString();
+    if(!lastDaily.length){
+      return '';
+    }
+
+    return new Date(lastDaily[0]?.created_at).toISOString();
   }
 }
