@@ -11,8 +11,15 @@ export class GetPatientsByProfessionalController {
   async handle(request: Request, response: Response ): Promise<Response> {
     try {
       const { professional_id } = request.params;
+      const { nome, orderBy } = request.query;
 
-      const patients = await this.getPatientsByProfessionalController.execute(professional_id);
+      const patients = await this.getPatientsByProfessionalController.execute(
+        professional_id,
+        {
+          nome: nome as string || '',
+          orderBy: orderBy as string || '',
+        }
+      );
 
       return response.status(200).json(patients);
     } catch (error: any) {
