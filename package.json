@@ -9,6 +9,9 @@
     "postinstall": "tsc",
     "dev": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "migration:create": "typeorm migration:create",
+    "migration:run": "typeorm migration:run",
+    "migration:latest": "typeorm migration:latest",
     "doc": "apidoc -i src/docs/ -o docs/ -f .doc.ts"
   },
   "dependencies": {
