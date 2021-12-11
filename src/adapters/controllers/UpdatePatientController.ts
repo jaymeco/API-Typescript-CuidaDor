@@ -12,12 +12,12 @@ export class UpdatePatientController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const { id } = request.params;
+      const { patient_id } = request.params;
       const data = request.body;
 
       await this.updatePatientUseCase.execute(
         data,
-        id,
+        patient_id,
       );
 
       return response.status(200).json({ message: 'Dados atualizados com sucesso!' });
