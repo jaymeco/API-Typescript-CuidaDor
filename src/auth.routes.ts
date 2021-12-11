@@ -16,6 +16,7 @@ import { getLastAccessController } from './main/GetLastAccess';
 import { updatePatientController } from './main/UpdatePatients';
 import { getChatsController } from './main/GetChats';
 import { getUsersOnChatController } from './main/GetUserOnChat';
+import ProfessionalController from './controllers/ProfessionalController';
 
 const authRoutes = Router();
 
@@ -83,6 +84,10 @@ authRoutes.get('/professionals/:professional_id/chats', (request, response) => {
 
 authRoutes.get('/chats/:chat_room', (request, response) => {
   return getUsersOnChatController.handle(request, response);
+});
+
+authRoutes.put('/professional/:professional_id', (request, response) => {
+  return ProfessionalController.updateProfessional(request, response);
 });
 
 export { authRoutes };
