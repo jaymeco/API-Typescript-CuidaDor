@@ -14,14 +14,12 @@ class ProfessionalController {
       const { professional_id } = request.params;
       const data = request.body;
 
-      await this.service.updateProfessional(
+      const professional = await this.service.updateProfessional(
         data,
         professional_id,
       );
 
-      return response.status(200).json({
-        message: 'Profissional atualizado com sucesso!',
-      });
+      return response.status(200).json(professional);
     } catch (error: any) {
       return response.status(400).json({
         message: error.message,

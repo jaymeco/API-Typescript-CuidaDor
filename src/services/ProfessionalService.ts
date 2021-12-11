@@ -23,9 +23,14 @@ class ProfessionalService {
   ) {
     this.findOrThrowError(professionaId);
     const repository = getCustomRepository(PostgresProfessionalRepository);
+
     await repository.update({
       id: professionaId,
     }, data);
+
+    const professional = repository.findOne({ id: professionaId });
+
+    return professional;
   }
 }
 
