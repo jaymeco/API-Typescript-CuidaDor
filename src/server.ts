@@ -1,5 +1,6 @@
-import { app } from './app';
+import { http } from './app';
+import './webSocket';
 
-app.listen(process.env.PORT || 3333, ()=> {
+http.listen(process.env.PORT || 3333, ()=> {
   console.log('Server is running!! 🚀🚀');
 });

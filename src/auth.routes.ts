@@ -14,6 +14,9 @@ import { getProfessionalsByPatientsController } from './main/GetProfessionalsByP
 import { getPatientController } from './main/GetPatient';
 import { getLastAccessController } from './main/GetLastAccess';
 import { updatePatientController } from './main/UpdatePatients';
+import { getChatsController } from './main/GetChats';
+import { getUsersOnChatController } from './main/GetUserOnChat';
+import ProfessionalController from './controllers/ProfessionalController';
 
 const authRoutes = Router();
 
@@ -73,6 +76,18 @@ authRoutes.get('/patient/:patient_id/access/last', (request, response) => {
 
 authRoutes.put('/patient/:patient_id', (request, response) => {
   return updatePatientController.handle(request, response);
+});
+
+authRoutes.get('/professionals/:professional_id/chats', (request, response) => {
+  return getChatsController.handle(request, response);
+});
+
+authRoutes.get('/chats/:chat_room', (request, response) => {
+  return getUsersOnChatController.handle(request, response);
+});
+
+authRoutes.put('/professional/:professional_id', (request, response) => {
+  return ProfessionalController.updateProfessional(request, response);
 });
 
 export { authRoutes };
