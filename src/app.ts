@@ -14,7 +14,7 @@ const http = createServer(app);
 const io = new Server(http,
   {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://cuida-dor.herokuapp.com",
       credentials: true,
       methods: ["GET", "POST"],
     }
