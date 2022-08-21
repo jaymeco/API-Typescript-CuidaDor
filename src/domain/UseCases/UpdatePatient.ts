@@ -6,7 +6,7 @@ export class UpdatePatient {
   async execute(
     data: UpdatePatientRequestDto,
     patient_id: string,
-  ): Promise<void> {
+  ): Promise<any> {
     const postgresPatientRepository = getCustomRepository(PostgresPatientRepository);
 
     const patientExists = await postgresPatientRepository.findOne({ id: patient_id });
@@ -18,6 +18,9 @@ export class UpdatePatient {
     await postgresPatientRepository.update({
       id: patient_id,
     }, data);
-;
+
+    const patient = await postgresPatientRepository.findOne({ id: patient_id });
+
+    return patient;
   }
 }

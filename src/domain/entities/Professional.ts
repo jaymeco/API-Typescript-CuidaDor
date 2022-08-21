@@ -75,5 +75,6 @@ export class Professional{
     this.crm = 'Não informado';
     this.city = 'Não informado';
     this.service_locations = 'Não informado';
+    this.avatar = '';
   }
 }

@@ -15,12 +15,12 @@ export class UpdatePatientController {
       const { patient_id } = request.params;
       const data = request.body;
 
-      await this.updatePatientUseCase.execute(
+      const patient = await this.updatePatientUseCase.execute(
         data,
         patient_id,
       );
 
-      return response.status(200).json({ message: 'Dados atualizados com sucesso!' });
+      return response.status(200).json(patient);
     } catch (error: any) {
       return response.status(400).json({
         message: error.message
